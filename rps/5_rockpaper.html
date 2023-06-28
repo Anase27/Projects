@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="rps-ui.css">
+</head>
+<body>
+    <h1>Round: 1</h1>
+    <div id="scores">
+        <span id="human_score">Human</span>
+        <span id="computer_score">Computer</span>
+    </div>
+    
+    <div class="rps_container">
+        <button type="button" id="rock" value="rock">Rock</button>
+        <button type="button" id="paper" value="paper">Paper</button>
+        <button type="button" id="scissors" value="scissors">Scissors</button>
+    </div>
+    <div class="endGame hidden">
+        <div class="gameOver">
+            <h2>Game over</h2>
+            <p id="win_Message"></p>
+        </div>
+    </div>
+
+    <script>
+        let computerwincount=0;
+        let playerwincount=0;
+        let btn=document.querySelectorAll('button');
+        let human_Score=document.querySelector('#human_score');
+        let computer_Score=document.querySelector('#computer_score');
+        let dikhai = document.querySelector('.endGame');
+        let dikhai2 = document.querySelector('.gameOver');
+
+        dikhai.addEventListener('click',name);
+        dikhai2.addEventListener('click',e =>{
+            e.stopPropagation();
+        });
+        function name() {
+            this.classList.add("hidden");
+        }
+    
+
+
+        function c(){
+
+            playRound(this.value,getComputerChoice());
+            human_Score.textContent=`Human: ${playerwincount}`;
+            computer_Score.textContent=`Computer: ${computerwincount}`;
+            if (computerwincount == 5 || playerwincount == 5) {
+                let message=document.querySelector('#win_Message');
+                message.setAttribute=('style','font-weight: bold;')
+                if(computerwincount==5)
+                {
+                    message.textContent='Computer wins';
+                }
+                else{
+                    message.textContent='Human wins';                    
+                }
+                
+                dikhai.classList.remove("hidden");
+                btn.forEach(r => {
+                    r.removeEventListener('click',c);
+                });
+            }
+        }
+        
+        btn.forEach(rps => {
+            rps.addEventListener('click',c);
+        });
+
+
+        // (function game()
+        // {
+        //     for (let i = 0; i < 5; i++) {
+        //         let getplayerchoice=prompt("Choose rock, paper or scissor:-");
+        //         alert(playRound(getplayerchoice,getComputerChoice()));
+        //         // console.log(getComputerChoice());
+        //     }
+        // }())
+        // if (computerwincount>playerwincount) {
+        //     alert("Computer won by "+computerwincount+"-"+playerwincount)
+        // }
+        // else if (computerwincount==playerwincount) {
+        //     alert("Match is draw!")
+        // }
+        // else{
+        //     alert("Human won by "+playerwincount+"-"+computerwincount);
+        // }
+
+        function getComputerChoice()
+        {
+            let choice=Math.floor(Math.random()*3);
+            switch (choice) {
+                case 0:
+                    
+                    return "paper"
+                    break;
+                    
+                case 1:
+                        
+                        return "rock"
+                        break;
+                        
+                case 2:
+                    
+                    return "scissor"
+                    break;
+            }
+        }
+        function playRound(playerchoice,computerchoice)
+        {
+            // console.log(`p:-${playerchoice},  c:-${computerchoice}`);
+            playerchoice=playerchoice.toLowerCase();
+            if (playerchoice=="rock") {
+                if (computerchoice=="rock") {
+                    return "It's a draw!";
+                }
+                else if (computerchoice=="paper") {
+                    computerwincount++;
+                    return "You lose! Paper beats Rock";
+                }
+                playerwincount++;
+                return "You win! Rock beats Scissor";
+            }
+            else if (playerchoice=="paper") {
+                if (computerchoice=="rock") {
+                    playerwincount++;
+                    return "You win! Paper beats Rock";
+                }
+                else if (computerchoice=="paper") {
+                    return "It's a draw!";
+                }
+                
+                computerwincount++;
+                return "You lose! Scissor beats Paper";
+            }
+            else
+            {
+                //scissors
+                if (computerchoice=="rock") {
+                    computerwincount++;
+                    return "You lose! Rock beats Scissor";
+                }
+                else if (computerchoice=="paper") {
+                    playerwincount++;
+                    return "You win! Scissor beats Paper";
+
+                }
+                
+                return "You lose! Scissor beats Paper";
+
+            }
+        }
+        
+    </script>
+</body>
+</html>
