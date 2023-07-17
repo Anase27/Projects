@@ -1,0 +1,84 @@
+:root{
+    --background: #f6f6f6;
+    --calculator: rgb(33, 32, 32);
+    --screen: #eee;
+    --button: #dadada;
+    --button-secondary: #30aa94;
+    --clear: #f55151;
+    --delete: #1e81fa;
+    --border: #2b2929;
+    --font: #d7cfcf;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calc{
+    max-width: 388px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px
+}
+
+.display{
+    background-color: var(--screen);
+    /* content: ""; */
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.secondary_display{
+    height: 32px;
+    margin-bottom: 5px;
+    text-align: end;
+    font-size: 18px;
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
+}
+.primary_display{
+    min-height: 64px;
+    text-align: end;
+    font-size: 45px;
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
+    overflow-wrap: break-word;
+    transition: height 0.5s ease-in-out;
+}
+/* ::-webkit-scrollbar
+{
+    height: 0px;
+} */
+/* ::-webkit-scrollbar-track:hover
+{
+    background-color: var(--button);
+}
+::-webkit-scrollbar-thumb:hover
+{
+    background-color: var(--border);
+} */
+
+.buttons{
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 5px;
+}
+.buttons .upper_row{
+    display: grid;
+    grid-column: span 3;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+}
+.btn{
+    box-sizing: border-box;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
