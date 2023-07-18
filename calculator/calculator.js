@@ -67,12 +67,12 @@ function eqls()
 {
     if(firstNum.length > 0 && secondNum.length > 0 && operation.length > 0)
     {
-        smallDisplay.textContent=`${firstNum} ${operation} ${secondNum} =`
+        smallDisplay.textContent=`${firstNum} ${operation} ${secondNum} = `
         operate(firstNum,operation,secondNum);
         // firstNum = '';
         secondNum = '';
         operation = '';
-        // clearLargeScreen = false;
+        clearLargeScreen = false;
     }
 }
 
@@ -161,9 +161,12 @@ function appendOperand(num)
     if (!clearLargeScreen) {
         firstNum += num;
         if (firstNum.length > 15) {
-            firstNum = '0';
+            firstNum = '';
+            largeDisplay.textContent = '0';
         }
-        largeDisplay.textContent = firstNum;
+        else{
+            largeDisplay.textContent = firstNum;
+        }
     }
     else{
         if (num === '.' && secondNum.length == 0) {
@@ -171,10 +174,15 @@ function appendOperand(num)
         }
         secondNum += num;
         if (secondNum.length > 15) {
-            secondNum = '0';
+            secondNum = '';
+            largeDisplay.textContent = '0';
         }
-        largeDisplay.textContent = secondNum;
+        else
+        {
+            largeDisplay.textContent = secondNum;
+        }
     }
+
 }
 
 function appendOperator(opr)
@@ -186,6 +194,12 @@ function appendOperator(opr)
     {
         operate(firstNum,operation,secondNum);
         secondNum="";
+    }
+    if (firstNum.slice(firstNum.length-1) == '.') {
+        firstNum += '0';
+    }
+    if (secondNum.slice(secondNum.length-1) == '.') {
+        secondNum += '0';
     }
     operation = opr;
     smallDisplay.textContent = `${firstNum} ${opr} `;
