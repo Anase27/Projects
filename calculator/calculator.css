@@ -84,16 +84,44 @@ body{
     cursor: pointer;
     background-color: var(--calculator);
     color: var(--font);
+    transition: all 0.01s ease-in-out;
 }
-
+.btn:hover{
+    box-shadow: 0px 0px 2px 0.35px rgb(87, 86, 86);
+}
+.btn:active{
+    transform: scale(0.98);
+    box-shadow: inset 0px 0px 2px 0.35px rgb(87, 86, 86);
+}
 .delete{
     color: var(--delete);
+}
+.delete:hover{
+    box-shadow: 0px 0px 2px 0.35px var(--delete);
+}
+.delete:active{
+    transform: scale(0.98);
+    box-shadow: inset 0px 0px 2px 0.35px var(--delete);
 }
 
 .clear{
     color: var(--clear);
 }
+.clear:hover{
+    box-shadow: 0px 0px 2px 0.35px var(--clear);
+}
+.clear:active{
+    transform: scale(0.98);
+    box-shadow: inset 0px 0px 2px 0.35px var(--clear);
+}
 
 .lastRow{
     color: var(--button-secondary);
+}
+.lastRow:hover{
+    box-shadow: 0px 0px 2px 0.35px var(--button-secondary);
+}
+.lastRow:active{
+    transform: scale(0.98);
+    box-shadow: inset 0px 0px 2px 0.35px var(--button-secondary);
 }
