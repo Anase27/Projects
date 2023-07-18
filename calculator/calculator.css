@@ -1,0 +1,99 @@
+:root{
+    --background: #d1cfcf;
+    --calculator: #222222;
+    --screen: #d2d2d2;
+    --button: #dadada;
+    --button-secondary: #00ffd0;
+    --clear: #f55151;
+    --delete: #5ea3f7;
+    --border: #2b2929;
+    --font: #d7cfcf;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: var(--background);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.calc{
+    width: 388px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    color: inherit;
+    background-color: var(--calculator);
+    box-shadow: 0px 0px 10px 1px rgb(87, 86, 86);
+}
+
+.display{
+    background-color: var(--screen);
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 5px 0.5px rgb(87, 86, 86);
+}
+.secondary_display{
+    height: 32px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-align: end;
+    overflow-wrap: break-word;
+    
+}
+.primary_display{
+    min-height: 64px;
+    font-size: 45px;
+    text-align: end;
+    overflow-wrap: break-word;
+}
+
+.buttons{
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 5px;
+}
+
+.buttons .upper_row{
+    display: grid;
+    grid-column: span 3;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+}
+.btn{
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    background-color: var(--calculator);
+    color: var(--font);
+}
+
+.delete{
+    color: var(--delete);
+}
+
+.clear{
+    color: var(--clear);
+}
+
+.lastRow{
+    color: var(--button-secondary);
+}
