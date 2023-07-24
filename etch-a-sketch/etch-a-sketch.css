@@ -9,7 +9,7 @@
 }
 .container div{
     box-sizing: border-box;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 .buttons .active{
     background-color: brown;
