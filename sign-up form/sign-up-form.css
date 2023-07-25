@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Lunasima&display=swap');
+
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lunasima', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.container{
+    display: flex;
+    min-height: 100vh;
+}
+.left_half{
+    position: relative;
+    background-image: url(./josh-doan-WO2d3P20JQM-unsplash.jpg);
+    /* scale: .95; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-position: bottom 50% right 30%;
+    /* flex-basis: 40%; */
+    width: 40vw;
+    /* padding: 5px; */
+}
+.name_div{
+    position: absolute;
+    top: 30%;
+    color: aliceblue;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.credits{
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+}
+.credits a{
+    text-decoration: underline;
+}
+.right_half{
+    width: 60vw;
+    /* padding: 5px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(244, 244, 244);
+}
+.upper_text{
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    width: min(100%,55ch);
+    line-height: 1.25;
+}
+.mid{
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.form{
+    padding: 20px 10px 30px 30px;
+    background-color: white;
+    box-shadow: 1px 2px 4px .2px rgb(172, 170, 170);
+    margin: 10px 0;
+
+}
+.form>p{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px 5px 15px;
+}
+input,label{
+    display: block;
+    margin: 5px;
+}
+input{
+    /* appearance: none; */
+    /* border: 1px solid black; */
+    border: none;
+    border-radius: 1px;
+    box-shadow: 0 0 0px .2px black;
+    width: 90%;
+    padding: 5px;
+}
+.input_container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+input:focus{
+    outline: 2px solid #6e8d53;
+    /* outline: none; */
+    box-shadow: 0px 0px 3px 1px rgb(130, 129, 129);
+}
+/* input:invalid{
+    outline: 2px solid #ea1f18;
+    box-shadow: 0px 0px 3px 1px rgb(130, 129, 129);
+} */
+.submit_btn{
+    margin: 15px 25px;
+}
+.submit_btn button{
+    padding: 10px 30px;
+    color: white;
+    background-color:#6e8d53;
+    border: 2px solid #6e8d53;
+    border-radius: 8px;
+    font-size: 18px;
+}
+.existing_user{
+    margin: 0px 25px;
+}
+.existing_user a{
+    color: #99c473;
+}
+
+
+@media only screen and (max-width:650px) {
+    .container{
+        flex-direction: column;
+    }
+    .left_half{
+        height:400px;
+        width: 100vw;
+    }
+    .right_half{
+        width: 100vw;
+    }
+}
+@media only screen and (max-width:500px){
+    .left_half{
+        height:300px;
+    }
+}
+@media only screen and (max-width:370px){
+    .left_half{
+        height:200px;
+    }
+    .input_container{
+        grid-template-columns: repeat(1,1fr);
+    }
+}

@@ -9,11 +9,59 @@
 <body>
     <div class="container">
         <div class="left_half">
-
+            <div class="name_div">name</div>
+            <div class="credits">Photo by <a href="https://unsplash.com/@nhatminh23?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Josh Doan</a> on <a href="https://unsplash.com/photos/a-stone-staircase-leading-up-to-a-building-WO2d3P20JQM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </div>
         </div>
+
         <div class="right_half">
-            
+            <div class="upper_text">
+                <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+                <p>Sign up now to get started.</p>
+            </div>
+            <div class="mid">
+                <p>You <i>know </i>you want to.</p>
+            </div>
+            <div class="form_container">
+                <form action="" validate>
+                    <div class="form">
+                        <p>Let's do this!</p>
+                        <div class="input_container">
+                            <div>
+                                <label for="f_name">First Name</label>
+                                <input type="text" placeholder="First name" id="f_name" name="firstName" required>
+                            </div>
+                            <div>
+                                <label for="l_name">Last Name</label>
+                                <input type="text" placeholder="Last name" id="l_name" name="lastName">
+                            </div>
+                            <div>
+                                <label for="mail">Email</label>
+                                <input type="email" id="mail" name="email" required>
+                            </div>
+                            <div>
+                                <label for="phoneNo.">Phone Number</label>
+                                <input type="tel" id="phoneNo." name="phoneNo" title="Phone no only includes numbers" pattern="^[0-9]+$">
+                            </div>
+                            <div>
+                                <label for="pass">Password</label>
+                                <input type="password" id="pass" name="password" required>
+                            </div>
+                            <div>
+                                <label for="confirmPass">Confirm Password</label>
+                                <input type="password" name="password_confirmation" id="confirmPass" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit_btn"><button type="submit">Create Account</button></div>
+                </form>
+            </div>
+
+            <div class="existing_user">
+                <p class="logIn">Already have an account? <a href="">Log in</a></p>
+            </div>
         </div>
     </div>
 </body>
+<script src="sign-up-form.js"></script>
 </html>
