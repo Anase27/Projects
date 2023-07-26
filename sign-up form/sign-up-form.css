@@ -12,7 +12,10 @@ a{
     text-decoration: none;
     color: inherit;
 }
-
+@font-face {
+    font-family: 'Norse';
+    src: url(./Norse-Bold.otf);
+}
 .container{
     display: flex;
     min-height: 100vh;
@@ -20,22 +23,35 @@ a{
 .left_half{
     position: relative;
     background-image: url(./josh-doan-WO2d3P20JQM-unsplash.jpg);
-    /* scale: .95; */
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-position: center; */
     background-position: bottom 50% right 30%;
-    /* flex-basis: 40%; */
     width: 40vw;
-    /* padding: 5px; */
+}
+.name_div::before{
+    content: "";
+    background-image: url(./odin-lined.png);
+    display: inline-block;
+    height: 115px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 .name_div{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     position: absolute;
     top: 30%;
     color: aliceblue;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
+    font-size: 6em;
+    padding: 15px 0;
+    font-family: 'Norse';
 }
 .credits{
     position: absolute;
@@ -49,7 +65,6 @@ a{
 }
 .right_half{
     width: 60vw;
-    /* padding: 5px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,9 +130,10 @@ input:focus{
     border: 2px solid #6e8d53;
     border-radius: 8px;
     font-size: 18px;
+    cursor: pointer;
 }
 .existing_user{
-    margin: 0px 25px;
+    margin: 20px 25px;
 }
 .existing_user a{
     color: #99c473;
@@ -147,5 +163,61 @@ input:focus{
     }
     .input_container{
         grid-template-columns: repeat(1,1fr);
+    }
+    .name_div{
+        top: 5%;
+    }
+}
+
+@media only screen and (min-width:2250px){
+    .credits{
+        font-size: 15px;
+    }
+    .name_div::before{
+        height: 175px;
+        width: 145px;
+    }
+    .name_div{
+        font-size: 10em;
+    }
+    .upper_text{
+        padding-inline-start: 35px;
+        font-size: 45px;
+    }
+    .mid{
+        padding: 35px;
+        font-size: 36px;
+    }
+    .form{
+        padding: 20px 10px 30px 35px;
+    }
+    .form>p{
+        font-size: 36px;
+    }
+    .input_container{
+        font-size: 30px;
+    }
+    input,label{
+        font-size: 30px;
+    }
+    input{
+        border-radius: 7px;
+        box-shadow: 0 0 0px 1.2px rgb(104, 103, 103);
+        padding: 10px;
+    }
+    input:focus{
+        outline: 3px solid #56b205;
+        box-shadow: 0px 0px 3px 2px rgb(130, 129, 129);
+    }
+    .submit_btn{
+        margin: 15px 40px;
+
+    }
+    .submit_btn button{
+        font-size: 40px;
+    }
+    .existing_user {
+        margin: 20px 40px;
+        font-size: 26px;
     }
 }
