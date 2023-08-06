@@ -1,0 +1,302 @@
+:root{
+    --background:#2d2d2d;
+    --samll-icon-size: 25px;
+    --large-icon-size: 30px;
+    --larger-icon-size: 50px;
+    --temp-background: purple;
+    --default-padding: 15px;
+    --blue-background: #1992d4;
+    --font-color: #f3f3f3;
+    --white-color:rgb(228, 228, 228);
+    --shadow: 2px 0px 3px 2px #c6c4c4;
+}
+
+*,
+::before,
+::after{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+button{
+    cursor: pointer;
+}
+
+.topmost-container{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    /* grid-template-rows: 0fr 3fr; */
+    /* IT WORKS BUT DON'T KNOW WHY */
+
+    grid-template-rows: 170px 3fr;
+    
+
+}
+.sidebar{
+    /* position: sticky; */
+    grid-row: 1/3;
+    min-height: 100vh;
+    background-color: var(--blue-background);
+    padding: 1em;
+    color: var(--font-color);
+}
+.lare-icon{
+    max-width: var(--large-icon-size);
+}
+.personal-info-section > a div,
+.settings-section > a div{
+    display: grid;
+    grid-template-columns: calc(var(--large-icon-size)) 1fr;
+    gap: 1em;
+    align-items: center;
+    font-size: 22px;
+}
+.personal-info-section > a,
+.settings-section > a{
+    display: grid;
+    gap: 1.25em;
+}
+.settings-section,
+.personal-info-section{
+    margin-top: 25px;
+    display: grid;
+    gap: 1em;
+}
+/* .sidebar img{
+    mix-blend-mode: luminosity;
+} */
+
+/* HEADER */
+.header{
+    padding: var(--default-padding);
+    /* background-color: var(--white-color); */
+    box-shadow: 2px 0px 3px 2px #c6c4c4;
+    z-index: 1;
+    position: relative;
+}
+.header-top-half{
+    display: grid;
+    /* grid-template-rows: 1fr; */
+    grid-auto-flow: column;
+    grid-template-columns: 1fr max-content;
+    /* padding: 15px */
+}
+.header-searchbar{
+    display: grid;
+    grid-template-columns: var(--large-icon-size) 1fr;
+    align-items: center;
+    gap: 0.5em;
+    /* grid-auto-flow: column; */
+
+}
+
+.header-searchbar input{
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-size: 18px;
+    width: 80%;
+    max-width: 700px;
+    border: none;
+    background: var(--white-color);
+}
+
+.header-top-half-right{
+    display: grid;
+    grid-template-columns: var(--large-icon-size) 1fr;
+    gap: 1em;
+    align-items: center;
+}
+
+
+.user-profile-picture{
+    height: 75px;
+    width: 75px;
+    background: var(--temp-background);
+    border-radius: 50%
+}
+.profile-picture{
+    height: var(--larger-icon-size);
+    width: var(--larger-icon-size);
+    background: var(--temp-background);
+    border-radius: 50%;
+}
+.header-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.55em
+}
+.header-profile > div{
+    cursor: pointer;
+}
+.header-notification{
+    cursor: pointer;
+}
+.header-bottom-half{
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+    gap: 4em;
+    margin-top: 1em;
+}
+.user{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 1em;
+    align-items: center;
+}
+.user-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.project-updation-section{
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+}
+
+.project-updation-section button{
+    background-color: var(--blue-background);
+    padding: 0.5em 1rem;
+    color: var(--font-color);
+    /* font-size: 18px; */
+    border: 2px solid var(--blue-background);
+    border-radius: 25px;
+    
+}
+
+/* MAIN */
+.main{
+    padding: var(--default-padding);
+    background-color: var(--white-color);
+}
+.main .container{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.5em;
+}
+
+.main-section-header{
+    font-size: 1.7em;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.project{
+    position: relative;
+    display: grid;
+    padding: var(--default-padding);
+    background: pink;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.project:hover{
+    scale: 1.01;
+    box-shadow: var(--shadow);
+}
+.project::before{
+    content: "";
+    height: 100%;
+    width: 10px;
+    background-color: aqua;
+    position: absolute;
+    border: none;
+}
+.projects-section-projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+.project-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.project-desc{
+    font-size: 1.4rem;
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.project-buttons{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: end;
+    gap: 10px;
+    margin: 10px;
+    align-self: self-end;
+}
+.project-buttons img{
+    width: var(--samll-icon-size);
+    cursor: pointer;
+}
+
+.announcement-blocks{
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+}
+
+
+.announcement-blocks:last-child{
+    /* border-bottom: 2px solid gray; */
+    border: none;
+}
+.announcement-header{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.announcement-desc{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.main-side-content{
+    width: 250px;
+}
+.announcement-blocks-container{
+    padding: var(--default-padding);
+    background-color: white;
+    border-radius: 15px;
+    margin-block-end: 35px;
+}
+
+
+/*  TRENDING SECTION */
+.trending-blocks-container{
+    padding: var(--default-padding);
+    display: grid;
+    gap: 10px;
+    background: white;
+    border-radius: 15px;
+}
+.trending-blocks{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+    gap: 15px;
+}
+.trending-pic{
+    height: var(--larger-icon-size);
+    width: var(--larger-icon-size);
+    background-color: var(--temp-background);
+    border-radius: 50%;
+}
+.trending-name{
+    font-size: 17px;
+    font-weight: bold;
+}
