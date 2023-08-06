@@ -2,11 +2,13 @@
     --background:#2d2d2d;
     --samll-icon-size: 25px;
     --large-icon-size: 30px;
+    --larger-icon-size: 50px;
     --temp-background: purple;
     --default-padding: 15px;
     --blue-background: #1992d4;
     --font-color: #f3f3f3;
     --white-color:rgb(228, 228, 228);
+    --shadow: 2px 0px 3px 2px #c6c4c4;
 }
 
 *,
@@ -23,7 +25,9 @@ a{
     margin: 0;
     padding: 0;
 }
-
+button{
+    cursor: pointer;
+}
 
 .topmost-container{
     display: grid;
@@ -75,6 +79,7 @@ a{
     /* background-color: var(--white-color); */
     box-shadow: 2px 0px 3px 2px #c6c4c4;
     z-index: 1;
+    position: relative;
 }
 .header-top-half{
     display: grid;
@@ -117,17 +122,21 @@ a{
     border-radius: 50%
 }
 .profile-picture{
-    height: 50px;
-    width: 50px;
+    height: var(--larger-icon-size);
+    width: var(--larger-icon-size);
     background: var(--temp-background);
     border-radius: 50%;
 }
 .header-profile {
-    /* display: inline-block; */
-    /* display: grid; */
     display: flex;
     align-items: center;
     gap: 0.55em
+}
+.header-profile > div{
+    cursor: pointer;
+}
+.header-notification{
+    cursor: pointer;
 }
 .header-bottom-half{
     display: grid;
@@ -177,6 +186,7 @@ a{
 .main-section-header{
     font-size: 1.7em;
     font-weight: bold;
+    padding-bottom: 15px;
 }
 
 .project{
@@ -185,10 +195,25 @@ a{
     padding: var(--default-padding);
     background: pink;
     border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.project:hover{
+    scale: 1.01;
+    box-shadow: var(--shadow);
+}
+.project::before{
+    content: "";
+    height: 100%;
+    width: 10px;
+    background-color: aqua;
+    position: absolute;
+    border: none;
 }
 .projects-section-projects{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 1rem;
     margin-top: 10px;
 }
@@ -200,6 +225,10 @@ a{
 .project-desc{
     font-size: 1.4rem;
     margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .project-buttons{
     display: grid;
@@ -211,4 +240,63 @@ a{
 }
 .project-buttons img{
     width: var(--samll-icon-size);
+    cursor: pointer;
+}
+
+.announcement-blocks{
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+}
+
+
+.announcement-blocks:last-child{
+    /* border-bottom: 2px solid gray; */
+    border: none;
+}
+.announcement-header{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.announcement-desc{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.main-side-content{
+    width: 250px;
+}
+.announcement-blocks-container{
+    padding: var(--default-padding);
+    background-color: white;
+    border-radius: 15px;
+    margin-block-end: 35px;
+}
+
+
+/*  TRENDING SECTION */
+.trending-blocks-container{
+    padding: var(--default-padding);
+    display: grid;
+    gap: 10px;
+    background: white;
+    border-radius: 15px;
+}
+.trending-blocks{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+    gap: 15px;
+}
+.trending-pic{
+    height: var(--larger-icon-size);
+    width: var(--larger-icon-size);
+    background-color: var(--temp-background);
+    border-radius: 50%;
+}
+.trending-name{
+    font-size: 17px;
+    font-weight: bold;
 }
