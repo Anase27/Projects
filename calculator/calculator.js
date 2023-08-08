@@ -2,7 +2,7 @@ let smallDisplay = document.querySelector('.secondary_display');
 let largeDisplay = document.querySelector('.primary_display');
 let operand = document.querySelectorAll('.operand');
 let operator = document.querySelectorAll('.operator');
-let clear = document.querySelector('.clear');
+let clear = document.querySelector('.clear');541236
 let del = document.querySelector('.delete');
 let equals = document.querySelector('.equals');
 
