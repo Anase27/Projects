@@ -1,0 +1,53 @@
+:root{
+    --body-background: white;
+    --navbar-background: rgba(0, 0, 0, 0.511);
+    --btn-border-radius: 25px;
+    /* --shadow:  */
+    --border-radius: 15px;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+nav{
+    width: 100vw;
+    background-color: var(--navbar-background);
+    position: sticky;
+    top: 0;
+}
+.navbar-container{
+    margin: 0 auto;
+    max-width: 80rem;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-container div{
+    padding: 10px;
+}
+#addBook{
+    margin: 50px 50px;
+}
+#bookDialog{
+    margin:auto auto;
+    border: none;
+    padding: 50px;
+    border-radius: var(--border-radius);
+}
+input, label{
+    display: block;
+}
+.read-status{
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-card{
+    background-color: aquamarine;
+}

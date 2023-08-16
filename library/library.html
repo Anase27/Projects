@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="library.css">
+</head>
+<body>
+    <nav>
+        <div class="navbar-container">
+            <div class="navbar-title">Library</div>
+            <div class="navbar-theme-icon page-theme">
+
+            </div>
+            <div>
+                <button type="button" class="navbar-button" id="logInBtn">Log in</button>
+                <!-- <button type="button" class="navbar-button" id="logOutBtn"></button> -->
+            </div>
+        </div>
+    </nav>
+    
+    <button type="button" id="addBook">add</button>
+    <main>
+        <div class="book-container">
+
+        </div>
+    </main>
+
+    <dialog id="bookDialog">
+        <form method="dialog">
+            <div class="title-div">
+                <label for="title">Title</label>
+                <input type="text" id="title" required>
+            </div>
+            <div class="author-div">
+                <label for="author">Author</label>
+                <input type="text" id="author" required>
+            </div>
+            <div class="page-no-div">
+                <label for="pages">No. of pages</label>
+                <input type="number" id="pages" required>
+            </div>
+            <div class="read-status">
+                <label for="status">Read</label>
+                <input type="checkbox" name="read" id="status">
+            </div>
+            <button id="submitBook">Submit</button>
+            <button id="cancelBook">Cancel</button>
+        </form>
+    </dialog>
+
+    
+</body>
+<script src="library.js"></script>
+</html>
