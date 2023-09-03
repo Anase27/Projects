@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: 0 auto;
+    background: #20bfdb;
+    /* max-width: 500px;
+    max-height: 500px; */
+    width: max-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    justify-items: center;
+
+}
+.box{
+    border: 2px solid;
+    height: 50px;
+    width: 50px;
+    padding: 30%
+    /* if padding needs to change then use the below code */
+}
+/* .box p{
+    margin: 28%;
+    text-align: center;
+} */
+dialog{
+    border: 2px solid;
+    margin: auto;
+    border-radius: 6px;
+}
+.dialog-container{
+    padding: 50px 30px;
+    font-size: 30px;
+}
+.dialog-container button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 2px;
+    background-color: transparent;
+    border: none;
+}
