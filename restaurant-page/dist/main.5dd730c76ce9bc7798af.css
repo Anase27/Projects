@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap);
 * {
     margin: 0;
     padding: 0;
@@ -7,14 +7,14 @@
 }
 @font-face {
     font-family: "Chango";
-    src: url(./Fonts/Chango/Chango-Regular.ttf);
+    src: url(fonts/Chango-Regular.be56504debe59ccab10f.ttf);
 }
 body {
-    background: url(./Images/bg.png) repeat;
+    background: url(Images/bg.e95e44dda4fa96916a85.png) repeat;
 }
 
 .nav-outer-container {
-    background: url(./Images/bg_head.png) repeat-x top left;
+    background: url(Images/bg_head.8b8c088121a6a503fc2c.png) repeat-x top left;
     text-align: center;
     padding-top: 100px;
     margin-bottom: 20px;
@@ -125,32 +125,4 @@ body {
     .menu-top-image-pc{
         display: none;
     }
-}
-
-/* contact page */
-.contact-outer-div{
-    max-width: 1000px;
-    padding: 0 20px;
-    margin: 0 auto;
-}
-.contact-outer-div>div{
-    margin-bottom: 10px;
-}
-.contact-details-div > div{
-    display: flex;
-    /* justify-content: center; */
-    /* margin: 0 20px; */
-    font-size: 24px;
-    align-items: center;
-    gap: 10px;
-}
-.address-img{
-    /* border: 2px solid black; */
-    border-radius: 5px;
-    overflow: hidden;
-    /* box-shadow: 0 0 2px 5px black; */
-}
-.address-img img{
-    max-width: 100%;
-    min-height: 100%;
 }

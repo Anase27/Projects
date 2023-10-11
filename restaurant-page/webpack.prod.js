@@ -15,8 +15,8 @@ module.exports = merge(common, {
     
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html',
             title: 'BonBon cafe',
+            template: './src/index.html',
         }),
         new MiniCssExtractPlugin({filename:'[name].[hash].css'}),
         new CleanWebpackPlugin()

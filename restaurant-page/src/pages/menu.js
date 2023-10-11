@@ -1,4 +1,5 @@
-import menuHead from '../Images/tit_menu.png';
+import menuHeadpc from '../Images/tit_menu.png';
+import menuHeadsp from '../Images/tit_menu_sp.png';
 import EggsBenedict from '../Images/menu/EggsBenedict.png';
 import puddingla from '../Images/menu/23team_B.png';
 import latte from '../Images/menu/23team_C.png';
@@ -69,13 +70,26 @@ function addMenu()
 
     const pageContainer = document.createElement('div');
     pageContainer.className = 'page-content-container';
-    const imgBox = document.createElement('h1');
-    imgBox.className = 'menu-top-image';
-    const menuHeadImage = document.createElement('img');
-    menuHeadImage.src = menuHead;
-    menuHeadImage.alt = 'menu';
-    imgBox.appendChild(menuHeadImage);
-    pageContainer.appendChild(imgBox);
+
+
+    const imgBoxpc = document.createElement('h1');
+    imgBoxpc.className = 'menu-top-image-pc';
+
+    const menuHeadImagepc = document.createElement('img');
+    menuHeadImagepc.src = menuHeadpc;
+    menuHeadImagepc.alt = 'menu';
+
+    const imgBoxsp = document.createElement('h1');
+    imgBoxsp.className = 'menu-top-image-sp';
+
+    const menuHeadImagesp = document.createElement('img');
+    menuHeadImagesp.src = menuHeadsp;
+    menuHeadImagesp.alt = 'menu';
+
+    imgBoxpc.appendChild(menuHeadImagepc);
+    imgBoxsp.appendChild(menuHeadImagesp);
+    pageContainer.appendChild(imgBoxpc);
+    pageContainer.appendChild(imgBoxsp);
 
     pageContainer.appendChild(createMenu());
     content.appendChild(pageContainer);
