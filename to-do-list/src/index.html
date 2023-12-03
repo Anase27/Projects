@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div class="outer-todo-container">
+            <div class="todo-container">
+                <div class="todo-navbar-container">
+                    <div class="hamburger-icon">
+                        <span class="iconify" data-icon="quill:hamburger"></span>
+                    </div>
+                    <div class="todo-logo">
+                        <p>logo</p>
+                    </div>
+                </div>
+                <div class="main-content-container">
+                    <div class="todo-navigation-container">
+                        <ul class="navigation-link-container">
+                            <li class="todo-navigation-link-container">
+                                <span id="home">Home</span>
+                            </li>
+                            <li class="todo-navigation-link-container">
+                                <span id="day">My Day</span>
+                            </li>
+                            <li class="todo-navigation-link-container">
+                                <span id="week">Week</span>
+                            </li>
+                            <li>
+                                <p class="nav-projects-heading"><span>Projects</span> <span class="iconify" data-icon="fluent:add-32-regular"></span></p>
+                                <ul class="projects-list-container" >
+                                    <li class="todo-navigation-link-container"><span id="gym">Gym</span></li>
+                                    <li class="todo-navigation-link-container"><span id="study">Study</span></li>
+                                    <li class="todo-navigation-link-container"><span id="groceries">Groceries</span></li>
+                                </ul>
+                            </li>
+                            <li class="todo-navigation-link-container">
+                                <span id="notes">Notes</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="task-edit-and-add-container">
+                        <div class="todo-tasks-container">
+                            <p>fghjk</p>
+                        </div>
+                        <div class="add-task-outer-container">
+                            <div class="add-task-container">
+                                <div class="add-task-desc-priority-contianer">
+                                    <div class="add-task-desc">
+                                        <input type="text" name="desc" id="desc">
+                                    </div>
+                                    <div class="add-task-priority">
+                                        <div class="low-priority-container">
+                                            <input type="radio" name="priority" id="low_prio" value="low" class="low-prio">
+                                            <label for="low_prio">
+                                                <span>Low</span>
+                                            </label>
+                                        </div>
+                                        <div class="med-priority-container">
+                                            <input type="radio" name="priority" id="med_prio" value="med" class="mid-prio">
+                                            <label for="med_prio">
+                                                <span>Medium</span>
+                                            </label>
+                                        </div>
+                                        <div class="high-priority-container">
+                                            <input type="radio" name="priority" id="high_prio" value="high" class="high-prio">
+                                            <label for="high_prio">
+                                                <span>High</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="add-task-edit-functions">
+                                    <label for="desc">
+                                        <div class="add-task-desc-edit">
+                                            <span class="iconify" data-icon="solar:list-up-broken"></span>
+                                        </div>
+                                    </label>
+                                    <div class="add-task-date-edit">
+                                        <input type="date" name="date" id=""> 
+                                        <!-- <span class="iconify" data-icon="uil:calender"></span> -->
+                                    </div>
+                                    <div class="add-task-priority-edit">
+                                        <span class="iconify" data-icon="tabler:hash"></span>
+                                    </div>
+                                </div>
+
+                                <div class="add-task-input-container">
+                                    <input type="text" placeholder="ghjk">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
