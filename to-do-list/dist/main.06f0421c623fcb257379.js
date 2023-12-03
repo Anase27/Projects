@@ -1,5 +1,40 @@
-import tasks from "./localStorage";
-import {currentSpaceTodos,fetchStorage} from './localStorage';
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ./src/localStorage.js
+// import * as n from './index.js'
+// localStorage.clear();
+let tasks = JSON.parse(localStorage.getItem("tasks")) || {
+    "home": [],
+    "day": [],
+    "week": [],
+    "gym":[],
+    "study":[],
+    "groceries":[],
+    "notes":[]
+
+};
+localStorage.setItem("tasks",JSON.stringify(tasks));
+// if (!localStorage.getItem("tasks")) {
+    
+// }
+
+// export tasks;
+function fetchStorage()
+{
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+    return tasks;
+}
+function currentSpaceTodos(name)
+{
+    // tasks = 
+    return tasks[name];
+}
+/* harmony default export */ const src_localStorage = (tasks);
+;// CONCATENATED MODULE: ./src/toDoFunctions.js
+
+
 const taskN = document.querySelector('.add-task-input-container input');
 const taskD = document.querySelector('.add-task-desc input');
 const taskDDate = document.querySelector('.add-task-date-edit input');
@@ -9,14 +44,14 @@ let currentWorkingSpace = "home";
 
 
 const taskContainer = document.querySelector('.todo-tasks-container');
-export const toDoManager =(function () {
+const toDoManager =(function () {
     function loadToDos()
     {
         taskContainer.textContent = "";
         let space = currentWorkingSpaceGetter();
         console.log(currentSpaceTodos(space));
         if(space=="home"){
-            for(const name in tasks)
+            for(const name in src_localStorage)
             {
                 console.log(name);
                 currentSpaceTodos(name).forEach((el,i)=>{
@@ -159,8 +194,8 @@ export const toDoManager =(function () {
         let index = +this.parentElement.parentElement.getAttribute("data-index");
         // typeof this.parentElement.parentElement.getAttribute("data-index");
         taskContainer.removeChild(this.parentElement.parentElement);
-        tasks[this.parentElement.parentElement.getAttribute("data-projectType")].splice(index,1);
-        localStorage.setItem("tasks",JSON.stringify(tasks));
+        src_localStorage[this.parentElement.parentElement.getAttribute("data-projectType")].splice(index,1);
+        localStorage.setItem("tasks",JSON.stringify(src_localStorage));
     }
 
 
@@ -189,3 +224,47 @@ export const toDoManager =(function () {
         removeTask
     }
 }());
+;// CONCATENATED MODULE: ./src/index.js
+
+
+
+
+
+// console.log('ritik gandu');
+let a = document.querySelector('.add-task-container');
+let d = document.querySelector('.add-task-input-container input');
+let navButtons = document.querySelectorAll(".todo-navigation-link-container");
+toDoManager.loadToDos();
+// console.log(navButtons);
+navButtons.forEach((e)=>{
+    e.addEventListener('click',function(){
+        // console.log(this.children[0].id);
+        toDoManager.currentWorkingSpaceSetter(this.children[0].id);
+        toDoManager.loadToDos();
+        console.log(toDoManager.currentWorkingSpaceGetter());
+        
+    });
+})
+
+d.addEventListener('keydown', (e) => {
+    // console.log(d.value);
+    if(e.keyCode === 13)
+    {
+        let task = document.createElement('p');
+        let s = d.value.trim();
+        // s=s.trim();
+        
+        if(s.length>0)
+        {
+            // task.textContent = s;
+            // b.appendChild(task);
+            toDoManager.Addtodo();
+        }
+        d.value = "";
+        
+    }
+});
+// localStorage.clear();
+/******/ })()
+;
+//# sourceMappingURL=main.06f0421c623fcb257379.js.map

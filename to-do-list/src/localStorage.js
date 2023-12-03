@@ -1,6 +1,6 @@
 // import * as n from './index.js'
 // localStorage.clear();
-const tasks = JSON.parse(localStorage.getItem("tasks")) || {
+let tasks = JSON.parse(localStorage.getItem("tasks")) || {
     "home": [],
     "day": [],
     "week": [],
@@ -16,8 +16,14 @@ localStorage.setItem("tasks",JSON.stringify(tasks));
 // }
 
 // export tasks;
+export function fetchStorage()
+{
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+    return tasks;
+}
 export function currentSpaceTodos(name)
 {
+    // tasks = 
     return tasks[name];
 }
 export default tasks;
