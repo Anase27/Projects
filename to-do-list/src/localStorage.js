@@ -1,16 +1,22 @@
 // import * as n from './index.js'
 // localStorage.clear();
-let tasks = JSON.parse(localStorage.getItem("tasks")) || {
-    "home": [],
-    "day": [],
-    "week": [],
-    "gym":[],
-    "study":[],
-    "groceries":[],
-    "notes":[]
-
+let proj = JSON.parse(localStorage.getItem("projects")) || {
+    "projects":["gym","study","grocery"]
 };
+let tasks = JSON.parse(localStorage.getItem("tasks"))
+if(tasks == null){
+    tasks = {
+        "home": [],
+        "day": [],
+        "week": []    
+    }
+    proj["projects"].forEach(e => {
+        // console.log(e);
+        tasks[e] = [];
+    });
+} 
 localStorage.setItem("tasks",JSON.stringify(tasks));
+localStorage.setItem("projects",JSON.stringify(proj));
 // if (!localStorage.getItem("tasks")) {
     
 // }
@@ -24,6 +30,7 @@ export function fetchStorage()
 export function currentSpaceTodos(name)
 {
     // tasks = 
+    tasks = JSON.parse(localStorage.getItem("tasks"));
     return tasks[name];
 }
 export default tasks;

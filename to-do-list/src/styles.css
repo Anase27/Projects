@@ -1,3 +1,7 @@
+:root{
+    --tick-icon : url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="currentColor" d="M16.972 6.251a1.999 1.999 0 0 0-2.72.777l-3.713 6.682l-2.125-2.125a2 2 0 1 0-2.828 2.828l4 4c.378.379.888.587 1.414.587l.277-.02a2 2 0 0 0 1.471-1.009l5-9a2 2 0 0 0-.776-2.72z"%2F%3E%3C%2Fsvg%3E');
+}
+
 *{
     list-style: none;
     margin: 0;
@@ -33,14 +37,20 @@ body{
 .task-edit-and-add-container{
     position: relative;
     flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.todo-tasks-container{
+    overflow-y: scroll;
 }
 .add-task-outer-container{
-    position: absolute;
-    /* inset: 100% 50% 0 50%; */
+    /* position: absolute;
+    inset: 100% 50% 0 50%;
     bottom: 0;
     bottom: 0;
     right: 0;
-    left: 0;
+    left: 0; */
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
@@ -124,4 +134,73 @@ input[type="radio"]
 .high-priority-container{
     padding: 7px;
 }
+#due-date{
+    background-color:black;
+    color-scheme:dark;
+}
 
+.task-status{
+    display: inline-block;
+}
+.task-status::before{
+    display: block;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border: 1px white;
+    background-color: white;
+}
+.task-completed::before{
+    background: var(--tick-icon);
+    border: 1px white;
+    background-color: white;
+}
+.todo-navigation-link-container{
+    text-transform: capitalize;
+}
+
+.add-project-form-container{
+    display: none;
+    z-index: 9999;
+    vertical-align: middle;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+
+}
+/* .add-project-form-container::before{
+    content: "";
+    height: 100%;
+    vertical-align: middle;
+} */
+#cover-div{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: aqua;
+    /* opacity: 0.1; */
+    z-index: 9000;
+    height: 100vh;
+    width: 100vw;
+
+}
+/* .add-project-icon{
+
+} */
+/* .add-project-form-container{
+
+} */
+.edit-form-container{
+    display: none;
+    z-index: 9999;
+    /* vertical-align: middle; */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /* text-align: center; */
+}
