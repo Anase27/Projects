@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // import * as n from './index.js'
 // localStorage.clear();
 let proj = JSON.parse(localStorage.getItem("projects")) || {
@@ -8,12 +9,14 @@ if(tasks == null){
     tasks = {
         "home": [],
         "day": [],
-        "week": []    
+        "week": [],
+        "notes":[]
     }
     proj["projects"].forEach(e => {
         // console.log(e);
         tasks[e] = [];
     });
+
 } 
 localStorage.setItem("tasks",JSON.stringify(tasks));
 localStorage.setItem("projects",JSON.stringify(proj));
