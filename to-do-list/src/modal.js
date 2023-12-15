@@ -78,9 +78,7 @@ export function showPrompt(e)
     container.style.display = 'flex';
     container.style.alignItems = 'center';
     container.style.justifyContent = 'center';
-    container.style.width = '100%'
-    // container.style.width = '100%'
-
+    container.style.width = '100%';
     form.elements['task-title'].focus();
 }
 
@@ -94,23 +92,21 @@ export function showProjectPrompt()
         hideCover();
         container.style.display = "none";
         document.onkeydown = null;
-        tasks[form.projectname.value.toLowerCase()]=[];
-        proj.projects.push(form.projectname.value.toLowerCase());
-        localStorage.setItem("tasks",JSON.stringify(tasks));
-        localStorage.setItem("projects",JSON.stringify(proj));
-        addProjects(form.projectname.value.toLowerCase());
         
         form.projectname.value = "";
         if (vlaue==null) {
             return;
         }
-        // console.log(tasks);
-        // console.log(proj);
     };
     form.onsubmit = function() {
         let projectName = form.projectname.value;
         if(projectName == "") return false;
         console.log(projectName);
+        tasks[form.projectname.value.toLowerCase()]=[];
+        proj.projects.push(form.projectname.value.toLowerCase());
+        localStorage.setItem("tasks",JSON.stringify(tasks));
+        localStorage.setItem("projects",JSON.stringify(proj));
+        addProjects(form.projectname.value.toLowerCase());
         complete(null);
         return false;
     };
@@ -140,7 +136,136 @@ export function showProjectPrompt()
     container.style.display = 'flex';
     container.style.alignItems = 'center';
     container.style.justifyContent = 'center';
-    container.style.width = '100%'
-    // container.style.width = '100%'
+    container.style.width = '100%';
     form.elements.projectname.focus();
+}
+
+export function showNotesPrompt(){
+    let container = document.querySelector(".add-note-form-container");
+    let form = document.querySelector('#add-note-form');
+    // let note = document.querySelector('#note-name-input');
+    let task = JSON.parse(localStorage.getItem("tasks"));
+    let type = toDoManager.currentWorkingSpaceGetter();
+    
+    showCover();
+    
+    function complete(vlaue)
+    {
+        hideCover();
+        container.style.display = "none";
+        document.onkeydown = null;
+        task[type].push({
+            "note": `${form.notename.value}`,
+            "type": type
+        });
+        console.log(task);
+        localStorage.setItem("tasks",JSON.stringify(task));
+        form.notename.value = "";
+        toDoManager.loadNotes();
+        if (vlaue==null) {
+            return;
+        }
+    }
+    
+    form.onsubmit = function() {
+        let note = form.notename.value;
+        if(note == "") return false;
+        console.log(note);
+        complete(null);
+        return false;
+    };
+    form.cancel.onclick = function(){
+        complete(null);
+    };
+    document.onkeydown = function(e) {
+        if (e.key == 'Escape') {
+          complete(null);
+        }
+    };
+    let lastElem = form.elements[form.elements.length - 1];
+    let firstElem = form.elements[0];
+    lastElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && !e.shiftKey) {
+          firstElem.focus();
+          return false;
+        }
+    };
+
+    firstElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && e.shiftKey) {
+            lastElem.focus();
+            return false;
+        }
+    };
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    container.style.width = '100%';
+    form.elements.notename.focus();
+}
+export function showEditNotesPrompt(e){
+    let container = document.querySelector(".add-note-form-container");
+    let form = document.querySelector('#add-note-form');
+    // let note = document.querySelector('#note-name-input');
+    let task = JSON.parse(localStorage.getItem("tasks"));
+    let type = toDoManager.currentWorkingSpaceGetter();
+    let parent = e.parentElement.parentElement;
+    showCover();
+
+    
+    function complete(vlaue)
+    {
+        hideCover();
+        container.style.display = "none";
+        document.onkeydown = null;
+        
+        //     "note": `${form.notename.value}`,
+        //     "type": type
+        // });
+        // console.log(task);
+        form.notename.value = "";
+        toDoManager.loadNotes();
+        if (vlaue==null) {
+            return;
+        }
+    }
+    
+    form.onsubmit = function() {
+        let note = form.notename.value;
+        if(note == "") return false;
+        // console.log(note);
+        task[type][parent.getAttribute("data-index")].note = form.notename.value;
+        localStorage.setItem("tasks",JSON.stringify(task));
+        complete(null);
+        return false;
+    };
+    form.cancel.onclick = function(){
+        complete(null);
+    };
+    document.onkeydown = function(e) {
+        if (e.key == 'Escape') {
+          complete(null);
+        }
+    };
+    let lastElem = form.elements[form.elements.length - 1];
+    let firstElem = form.elements[0];
+    lastElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && !e.shiftKey) {
+          firstElem.focus();
+          return false;
+        }
+    };
+
+    firstElem.onkeydown = function(e) {
+        if (e.key == 'Tab' && e.shiftKey) {
+            lastElem.focus();
+            return false;
+        }
+    };
+    form.notename.value = task[type][parent.getAttribute("data-index")].note;
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    container.style.width = '100%';
+    form.elements.notename.focus();
 }

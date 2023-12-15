@@ -28,37 +28,49 @@ body{
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 .main-content-container{
+    /* THIS MIGHT NEED SOME ADJUSTMENTS */
     display: flex;
-    height: 100%;
+    /* height: 100%; */
+    height: calc(100% - 20px);
     position: relative;
+    /* padding-bottom: 25px; */
 }
 .task-edit-and-add-container{
     position: relative;
     flex: 1 1 100%;
-    display: flex;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25px 1fr;
     flex-direction: column;
     justify-content: space-between;
 }
 .todo-tasks-container{
     overflow-y: scroll;
+    margin-inline-end: -50px;
+    padding-right: 30px;
 }
 .add-task-outer-container{
-    /* position: absolute;
-    inset: 100% 50% 0 50%;
-    bottom: 0;
-    bottom: 0;
-    right: 0;
-    left: 0; */
-    display: flex;
-    /* justify-content: center; */
+    margin-top: auto;
+    /* display: flex; */
+    display: grid;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .add-task-container{
-    display: flex;
+    /* display: flex; */
+    display: grid;
     flex-direction: column;
+    /* grid-template-rows: 0fr 0fr 0fr; */
+    /* ABOVE LINE IS NEEDED FOR TRANSITION TO WORK PROPERLY */
+    transition: grid-template-rows 500ms;
+}
+.add-task-container>div{
+    overflow: hidden;
 }
 .add-task-edit-functions{
     display: flex;
@@ -67,7 +79,7 @@ body{
 .add-task-desc-edit,
 .add-task-date-edit,
 .add-task-priority-edit{
-    padding: 5px 12% 0;
+    /* padding: 5px 12% 0; */
     cursor: pointer;
 }
 .todo-navigation-container{
@@ -90,12 +102,16 @@ body{
     flex-direction: column;
     gap: 20px;
     font-size: 20px;
+    overflow: hidden;
 }
 .projects-list-container{
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-left: 10px;
+    max-height: 140px;
+    overflow-y: scroll;
+    margin-inline-end: -50px;
 }
 .nav-projects-heading{
     display: flex;
@@ -159,7 +175,9 @@ input[type="radio"]
     text-transform: capitalize;
 }
 
-.add-project-form-container{
+.add-project-form-container,
+.add-note-form-container{
+    
     display: none;
     z-index: 9999;
     vertical-align: middle;
@@ -203,4 +221,49 @@ input[type="radio"]
     right: 0;
     left: 0;
     /* text-align: center; */
+}
+
+.task-edit-add-notes-container{
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 500ms;
+    max-height: 25px;
+}
+.task-edit-add-notes-container button{
+    overflow: hidden;
+    border: none;
+}
+
+/* COLCADE */
+/* with flexbox */
+.grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.grid-col {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+/* 2 columns by default, hide columns 2 & 3 */
+.grid-col--2, .grid-col--3 { display: none }
+
+/* 3 columns at medium size */
+@media ( min-width: 768px ) {
+    .grid-col--2 { display: block; } /* show column 2 */
+}
+
+/* 4 columns at large size */
+@media ( min-width: 1080px ) {
+    .grid-col--3 { display: block; } /* show column 3 */
+}
+.note-tile-desc-container p{
+    /* word-wrap: break-word; */
+    word-break: break-all;
 }

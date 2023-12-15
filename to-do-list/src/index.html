@@ -43,14 +43,17 @@
                                     <li class="todo-navigation-link-container"><span id="groceries">Groceries</span></li> -->
                                 </ul>
                             </li>
-                            <li class="todo-navigation-link-container">
+                            <li class="todo-navigation-link-container fixed-navigation-link-container fixed-navigation-notes-link-container">
                                 <span id="notes">Notes</span>
                             </li>
                         </ul>
                     </div>
                     <div class="task-edit-and-add-container">
+                        <div class="task-edit-add-notes-container">
+                            <button type="button">Add note</button>
+                        </div>
                         <div class="todo-tasks-container">
-                            <p>fghjk</p>
+                            <!-- <p>fghjk</p> -->
                         </div>
                         <div class="add-task-outer-container">
                             <div class="add-task-container">
@@ -88,7 +91,7 @@
                                     </label>
                                     <div class="add-task-date-edit">
                                         <input type="date" name="date" id="due-date"> 
-                                        <label for="due-date"><span class="iconify" data-icon="uil:calender"></span></label>
+                                        <!-- <label for="due-date"><span class="iconify" data-icon="uil:calender"></span></label> -->
                                     </div>
                                     <div class="add-task-priority-edit">
                                         <span class="iconify" data-icon="tabler:hash"></span>
@@ -158,6 +161,19 @@
                 <div class="project-add-input-bottom-part">
                     <button type="submit" class="project-add-submit-button" >Add</button>
                     <button type="button" class="project-add-cancel-button" name="cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="add-note-form-container">
+            <form id="add-note-form">
+                <div class="add-note-input-top-part">
+                    <label for="note-name-input">Add a note</label>
+                    <!-- <input name="notename" type="text" id="note-name-input"> -->
+                    <textarea name="notename" id="note-name-input" ></textarea>
+                </div>
+                <div class="add-note-input-bottom-part">
+                    <button type="submit" class="add-note-submit-button">Add</button>
+                    <button type="button" class="add-note-cancel-button" name="cancel">Cancel</button>
                 </div>
             </form>
         </div>
