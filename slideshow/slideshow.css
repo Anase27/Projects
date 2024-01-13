@@ -5,10 +5,13 @@
 #slide-show-outer-container{
     width: 100vw;
     position: relative;
+    overflow: hidden;
 }
 .slide-show-grid-container{
     display: flex;
-    /* flex-direction: column; */
+    position: relative;
+    left: 0;
+    transition: all 0.5s ease-out;
 }
 .image-slide-container{
     min-width: 100%;
@@ -16,6 +19,7 @@
     display: flex;
     justify-content: center;
     position: relative;
+    transition: all 0.5s ease-out;
 }
 .image-slide-container img{
     max-width: 100%;
@@ -34,4 +38,17 @@
     top: 0;
     bottom: 0;
 
+}
+.nav-dots-container{
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    bottom: 50px;
+}
+.nav-dot{
+    height: 2px;
+    width: 2px;
+    border-radius: 100%;
+    background-color: white;
+    outline: solid black 1px;
 }
