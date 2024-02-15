@@ -1,0 +1,1 @@
+{"version":3,"file":"main.06585a31b956c2dca21e.js","mappings":"AAAAA,SAASC,KAAKC,YAAc","sources":["webpack://battleship/./src/index.js"],"sourcesContent":["document.body.textContent = \"afhajlkfl\";"],"names":["document","body","textContent"],"sourceRoot":""}
