@@ -18,7 +18,7 @@ export default function gameboard(){
     const checkCordsForPlacement = (cords,axis,len,ship) => {
         let x = cords[0];
         let y = cords[1];
-        if(x>9 || y>9) throw new Error();
+        if((x>9 || y>9)||(x<0 || y<0)) throw new Error();
         
         let shipCords = [];
         if(axis == 'x'){
@@ -43,14 +43,37 @@ export default function gameboard(){
                 }
             }
         }
-        placeShip(shipCords,ship);
-        return board.get(`${x}${y}`);
+        if(checkAdjacentCords(shipCords) == true){
+            placeShip(shipCords,ship);
+            return board.get(`${x}${y}`);
+        }else{
+            return false;
+        }
 
     }
 
     // 4
-    const takeCords = () => {
+    const checkAdjacentCords = (cords) => {
+        for(let i=0;i<cords.length;i++){
+            if(i==0){
+                let a = (board.get(`${cords[i][0]-1}${cords[i][1]-1}`));
+                let b = (board.get(`${cords[i][0]}${cords[i][1]-1}`));
+                let c = (board.get(`${cords[i][0]+1}${cords[i][1]-1}`));
+                if(a!=undefined || b!=undefined || c!=undefined) return false;
+            }
+            let x = (board.get(`${cords[i][0]-1}${cords[i][1]}`));
+            let y = (board.get(`${cords[i][0]+1}${cords[i][1]}`));
+            if(x!=undefined || y!=undefined) return false;
 
+
+            if(i==cords.length-1){
+                let a = (board.get(`${cords[i][0]+1}${cords[i][1]+1}`));
+                let b = (board.get(`${cords[i][0]}${cords[i][1]+1}`));
+                let c = (board.get(`${cords[i][0]-1}${cords[i][1]+1}`));
+                if(a!=undefined || b!=undefined || c!=undefined) return false;
+            }
+        }
+        return true;
     }
 
     // 5
