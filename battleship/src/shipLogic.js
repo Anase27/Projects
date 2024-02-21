@@ -1,10 +1,11 @@
+let allShips = {};
 export default function shipLogic(){
-    let allShips = {};
     const newShip = (length) => {
+        addShipToAllShips(length);
         return {
             length,
             hit_No: 0,
-            sunk: "false",
+            sunk: false,
             hit: function(){
                 if(this.hit_No<this.length)
                     ++this.hit_No;
@@ -20,19 +21,21 @@ export default function shipLogic(){
         let shipNo = Object.keys(allShips).length;
         allShips[`ship${shipNo+1}`] = newShip(length);
     }
+    const getShipList = () => {
+
+    }
 
     return{
-        allShips,
         newShip,
         addShipToAllShips,
 
     }
 }
 
-// const sh = shipLogic();
+const sh = shipLogic();
 
 // sh.addShipToAllShips(5);
-// console.log(sh.allShips);
-// sh.allShips["ship1"].hit();
-// console.log(sh.allShips);
+console.log(sh.allShips);
+sh.allShips["ship1"].hit();
+console.log(sh.allShips);
 
